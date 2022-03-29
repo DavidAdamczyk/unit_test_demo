@@ -10,7 +10,7 @@ class BankAccountTest {
 
     @BeforeEach
     void setUp() {
-        this.bankAccount = new BankAccount("David", 100);
+        this.bankAccount = new BankAccount("David", 100.00);
     }
 
     @AfterEach
@@ -19,14 +19,14 @@ class BankAccountTest {
 
     @Test
     void withdraw() {
-        bankAccount.withdraw(10);
-        assertEquals(90, bankAccount.getBalance());
+        bankAccount.withdraw(10.00);
+        assertEquals(90.00, bankAccount.getBalance());
     }
 
     @Test
     void withdrawThrowException() {
         IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
-                bankAccount.withdraw(110);
+                bankAccount.withdraw(110.00);
             }, "IllegalArgumentException error was expected");
 
         assertEquals("Withdrawal exceeds balance!", thrown.getMessage());
